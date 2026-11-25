@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Carlos Izquierdo Gil · Desarrollador Full Stack</title>
+  <meta name="description" content="Portafolio de Carlos Izquierdo Gil, desarrollador Full Stack con Python, Django REST Framework y PostgreSQL.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="nav">
+    <div class="container nav__inner">
+      <a href="#inicio" class="nav__logo">CI</a>
+      <nav>
+        <ul class="nav__links">
+          <li><a href="#sobre-mi">Sobre mí</a></li>
+          <li><a href="#experiencia">Experiencia</a></li>
+          <li><a href="#proyectos">Proyectos</a></li>
+          <li><a href="#contacto">Contacto</a></li>
+        </ul>
+      </nav>
+      <button class="theme-toggle" id="theme-toggle" aria-label="Cambiar tema">◐</button>
+    </div>
+  </header>
+
+  <main>
+    <section id="inicio" class="hero container">
+      <p class="hero__eyebrow">Hola, soy</p>
+      <h1>Carlos Izquierdo Gil</h1>
+      <p class="hero__role">Desarrollador Full Stack · Python · Django REST Framework · PostgreSQL</p>
+      <p class="hero__text">
+        Ingeniero Multimedia por la Universitat de València. Construyo plataformas web
+        de extremo a extremo, del backend al frontend, desde Valencia.
+      </p>
+      <div class="hero__actions">
+        <a href="#proyectos" class="btn btn--primary">Ver proyectos</a>
+        <a href="#contacto" class="btn">Contactar</a>
+      </div>
+    </section>
+
+    <section id="sobre-mi" class="section container">
+      <h2>Sobre mí</h2>
+      <p>
+        Tengo 3 años de experiencia en el sector del software. En ASD Smart Audit Solutions
+        desarrollo y mantengo plataformas web para el sector de la auditoría con Python, Django
+        y Django REST Framework, PostgreSQL y JavaScript, y participo en servicios backend en Go.
+        Mi etapa en soporte de software me dio una base sólida en depuración y resolución de
+        problemas reales de usuarios.
+      </p>
+      <div class="skills">
+        <div class="skills__group">
+          <h3>Lenguajes</h3>
+          <ul class="tags"><li>Python</li><li>JavaScript</li><li>Go</li><li>SQL</li><li>Kotlin</li><li>Java</li><li>C++</li></ul>
+        </div>
+        <div class="skills__group">
+          <h3>Backend</h3>
+          <ul class="tags"><li>Django</li><li>Django REST Framework</li><li>FastAPI</li></ul>
+        </div>
+        <div class="skills__group">
+          <h3>Frontend y móvil</h3>
+          <ul class="tags"><li>HTML5</li><li>CSS3</li><li>Android</li><li>Room</li></ul>
+        </div>
+        <div class="skills__group">
+          <h3>Datos y herramientas</h3>
+          <ul class="tags"><li>PostgreSQL</li><li>MySQL</li><li>MongoDB</li><li>Git</li><li>Docker</li><li>AWS S3</li></ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="experiencia" class="section container">
+      <h2>Experiencia</h2>
+      <ol class="timeline">
+        <li class="timeline__item">
+          <div class="timeline__head">
+            <h3>Desarrollador Full Stack</h3>
+            <span class="timeline__date">Ene 2026 – actualidad</span>
+          </div>
+          <p class="timeline__company">ASD Smart Audit Solutions · Barcelona (híbrido)</p>
+          <ul>
+            <li>APIs REST con Python y Django REST Framework para plataformas de auditoría.</li>
+            <li>Servicios backend en Go y bases de datos PostgreSQL (modelos y migraciones).</li>
+            <li>Funcionalidades de producto de extremo a extremo y corrección de incidencias en producción.</li>
+          </ul>
+        </li>
+        <li class="timeline__item">
+          <div class="timeline__head">
+            <h3>Ingeniero de soporte de software</h3>
+            <span class="timeline__date">May 2023 – May 2025</span>
+          </div>
+          <p class="timeline__company">F1 Connecting S.L. · Valencia (híbrido)</p>
+          <ul>
+            <li>Soporte técnico y resolución de incidencias en aplicaciones en producción.</li>
+            <li>Depuración y análisis de causa raíz de errores recurrentes.</li>
+          </ul>
+        </li>
+      </ol>
+    </section>
+
+    <section id="proyectos" class="section container">
+      <h2>Proyectos</h2>
+      <div class="projects">
+        <article class="card">
+          <h3>Gestor de polideportivo</h3>
+          <p class="card__meta">TFG · 2025</p>
+          <p>Plataforma web para gestionar socios, actividades e inscripciones de un polideportivo, con panel de administración.</p>
+          <ul class="tags"><li>Django</li><li>Python</li><li>HTML</li><li>CSS</li></ul>
+          <a class="card__link" href="https://youtu.be/jzID-QqDc48" target="_blank" rel="noopener">Ver demo →</a>
+        </article>
+        <article class="card">
+          <h3>SecurePass</h3>
+          <p class="card__meta">Gestor de contraseñas · 2025</p>
+          <p>Gestión de credenciales con verificación en dos pasos por correo, recuperación de contraseña y despliegue con Gunicorn y WhiteNoise.</p>
+          <ul class="tags"><li>Django</li><li>SQLite</li><li>SMTP</li></ul>
+          <a class="card__link" href="https://github.com/carlosizdo/PasswordManager" target="_blank" rel="noopener">Ver código →</a>
+        </article>
+        <article class="card">
+          <h3>Campings CV</h3>
+          <p class="card__meta">App Android · 2025</p>
+          <p>Muestra los campings de la Comunitat Valenciana a partir de datos abiertos, con buscador, favoritos y modo sin conexión.</p>
+          <ul class="tags"><li>Kotlin</li><li>Room</li><li>OkHttp</li></ul>
+          <a class="card__link" href="https://github.com/carlosizdo/Camping" target="_blank" rel="noopener">Ver código →</a>
+        </article>
+      </div>
+    </section>
+
+    <section id="contacto" class="section container contact">
+      <h2>Contacto</h2>
+      <p>¿Tienes un proyecto o una oferta? Escríbeme.</p>
+      <div class="hero__actions">
+        <a class="btn btn--primary" href="mailto:carlosizdo27@gmail.com">Enviar email</a>
+        <a class="btn" href="https://www.linkedin.com/in/carlosizquierdogil" target="_blank" rel="noopener">LinkedIn</a>
+        <a class="btn" href="https://github.com/carlosizdo" target="_blank" rel="noopener">GitHub</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer container">
+    <p>© <span id="year"></span> Carlos Izquierdo Gil</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
