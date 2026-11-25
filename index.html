@@ -5,140 +5,258 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Carlos Izquierdo Gil · Desarrollador Full Stack</title>
   <meta name="description" content="Portafolio de Carlos Izquierdo Gil, desarrollador Full Stack con Python, Django REST Framework y PostgreSQL.">
+  <meta name="theme-color" content="#07090f">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <header class="nav">
+  <div class="scroll-progress" id="scroll-progress"></div>
+  <div class="cursor-glow" id="cursor-glow" aria-hidden="true"></div>
+
+  <header class="nav" id="nav">
     <div class="container nav__inner">
-      <a href="#inicio" class="nav__logo">CI</a>
+      <a href="#inicio" class="nav__logo"><span>C</span>I<b>.</b></a>
       <nav>
         <ul class="nav__links">
           <li><a href="#sobre-mi">Sobre mí</a></li>
           <li><a href="#experiencia">Experiencia</a></li>
           <li><a href="#proyectos">Proyectos</a></li>
-          <li><a href="#contacto">Contacto</a></li>
+          <li><a href="#contacto" class="nav__cta">Hablemos</a></li>
         </ul>
       </nav>
-      <button class="theme-toggle" id="theme-toggle" aria-label="Cambiar tema">◐</button>
+      <button class="theme-toggle" id="theme-toggle" aria-label="Cambiar tema claro u oscuro">
+        <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M12 3a9 9 0 1 0 9 9 7 7 0 0 1-9-9Z"/></svg>
+      </button>
     </div>
   </header>
 
   <main>
-    <section id="inicio" class="hero container">
-      <p class="hero__eyebrow">Hola, soy</p>
-      <h1>Carlos Izquierdo Gil</h1>
-      <p class="hero__role">Desarrollador Full Stack · Python · Django REST Framework · PostgreSQL</p>
-      <p class="hero__text">
-        Ingeniero Multimedia por la Universitat de València. Construyo plataformas web
-        de extremo a extremo, del backend al frontend, desde Valencia.
-      </p>
-      <div class="hero__actions">
-        <a href="#proyectos" class="btn btn--primary">Ver proyectos</a>
-        <a href="#contacto" class="btn">Contactar</a>
+    <!-- HERO -->
+    <section id="inicio" class="hero">
+      <canvas id="hero-canvas" class="hero__canvas" aria-hidden="true"></canvas>
+      <div class="hero__blob hero__blob--1" aria-hidden="true"></div>
+      <div class="hero__blob hero__blob--2" aria-hidden="true"></div>
+
+      <div class="container hero__grid">
+        <div class="hero__copy">
+          <p class="badge"><span class="badge__dot"></span>Disponible para nuevos retos</p>
+          <h1>
+            <span class="hero__hello">Hola, soy</span>
+            <span class="gradient-text">Carlos Izquierdo</span>
+          </h1>
+          <p class="hero__role">
+            Desarrollador Full Stack que construye
+            <span class="typed" id="typed">APIs REST</span><span class="caret" aria-hidden="true"></span>
+          </p>
+          <p class="hero__text">
+            Python · Django REST Framework · PostgreSQL · Go. Ingeniero Multimedia por la
+            Universitat de València, trabajando desde Valencia.
+          </p>
+          <div class="hero__actions">
+            <a href="#proyectos" class="btn btn--primary magnetic">Ver proyectos <span aria-hidden="true">→</span></a>
+            <a href="#contacto" class="btn btn--ghost magnetic">Contactar</a>
+          </div>
+          <ul class="stats">
+            <li><strong data-count="3">0</strong><span>años en software</span></li>
+            <li><strong data-count="7">0</strong><span>lenguajes</span></li>
+            <li><strong data-count="3" data-suffix="+">0</strong><span>proyectos propios</span></li>
+          </ul>
+        </div>
+
+        <div class="code-window tilt" aria-label="Resumen de perfil en formato de código">
+          <div class="code-window__bar">
+            <span></span><span></span><span></span>
+            <p>carlos.py</p>
+          </div>
+<pre class="code"><code><span class="k">class</span> <span class="c">Developer</span>:
+    name     = <span class="s">"Carlos Izquierdo Gil"</span>
+    role     = <span class="s">"Full Stack"</span>
+    location = <span class="s">"Valencia, ES"</span>
+    stack    = [<span class="s">"Python"</span>, <span class="s">"Django"</span>,
+                <span class="s">"DRF"</span>, <span class="s">"PostgreSQL"</span>, <span class="s">"Go"</span>]
+
+    <span class="k">def</span> <span class="f">now</span>(self):
+        <span class="k">return</span> <span class="s">"APIs @ ASD Smart Audit"</span>
+
+    <span class="k">def</span> <span class="f">superpower</span>(self):
+        <span class="k">return</span> <span class="s">"debug → fix → ship"</span> <span class="cm"># 🚀</span></code></pre>
+        </div>
       </div>
+
+      <a href="#sobre-mi" class="scroll-hint" aria-label="Bajar a Sobre mí"><span></span></a>
     </section>
 
+    <!-- MARQUEE -->
+    <div class="marquee" aria-label="Tecnologías">
+      <div class="marquee__track">
+        <span>Python</span><span>Django</span><span>Django REST Framework</span><span>PostgreSQL</span><span>Go</span><span>JavaScript</span><span>FastAPI</span><span>Docker</span><span>Kotlin</span><span>Android</span><span>AWS S3</span><span>Git</span><span>MySQL</span><span>MongoDB</span>
+        <span aria-hidden="true">Python</span><span aria-hidden="true">Django</span><span aria-hidden="true">Django REST Framework</span><span aria-hidden="true">PostgreSQL</span><span aria-hidden="true">Go</span><span aria-hidden="true">JavaScript</span><span aria-hidden="true">FastAPI</span><span aria-hidden="true">Docker</span><span aria-hidden="true">Kotlin</span><span aria-hidden="true">Android</span><span aria-hidden="true">AWS S3</span><span aria-hidden="true">Git</span><span aria-hidden="true">MySQL</span><span aria-hidden="true">MongoDB</span>
+      </div>
+    </div>
+
+    <!-- SOBRE MÍ -->
     <section id="sobre-mi" class="section container">
-      <h2>Sobre mí</h2>
-      <p>
-        Tengo 3 años de experiencia en el sector del software. En ASD Smart Audit Solutions
-        desarrollo y mantengo plataformas web para el sector de la auditoría con Python, Django
-        y Django REST Framework, PostgreSQL y JavaScript, y participo en servicios backend en Go.
-        Mi etapa en soporte de software me dio una base sólida en depuración y resolución de
-        problemas reales de usuarios.
-      </p>
-      <div class="skills">
-        <div class="skills__group">
-          <h3>Lenguajes</h3>
-          <ul class="tags"><li>Python</li><li>JavaScript</li><li>Go</li><li>SQL</li><li>Kotlin</li><li>Java</li><li>C++</li></ul>
-        </div>
-        <div class="skills__group">
-          <h3>Backend</h3>
-          <ul class="tags"><li>Django</li><li>Django REST Framework</li><li>FastAPI</li></ul>
-        </div>
-        <div class="skills__group">
-          <h3>Frontend y móvil</h3>
-          <ul class="tags"><li>HTML5</li><li>CSS3</li><li>Android</li><li>Room</li></ul>
-        </div>
-        <div class="skills__group">
-          <h3>Datos y herramientas</h3>
-          <ul class="tags"><li>PostgreSQL</li><li>MySQL</li><li>MongoDB</li><li>Git</li><li>Docker</li><li>AWS S3</li></ul>
+      <p class="section__kicker reveal">01 — Sobre mí</p>
+      <h2 class="reveal">Del bug en producción<br>a la <span class="gradient-text">feature terminada</span>.</h2>
+      <div class="about">
+        <p class="about__text reveal">
+          Tengo 3 años de experiencia en el sector del software. En <strong>ASD Smart Audit Solutions</strong>
+          desarrollo y mantengo plataformas web para el sector de la auditoría con Python, Django y
+          Django REST Framework, PostgreSQL y JavaScript, y participo en servicios backend en Go.
+          Mi etapa en soporte me enseñó a entender los problemas reales de los usuarios y a
+          encontrar la causa raíz de cada fallo. Integro agentes de IA en mi flujo de trabajo para
+          ganar eficiencia sin perder calidad.
+        </p>
+        <div class="bento">
+          <div class="bento__item bento__item--wide reveal spotlight">
+            <h3>Backend</h3>
+            <p>Django · DRF · FastAPI · Go</p>
+            <div class="bars"><span style="--w:95%"></span></div>
+          </div>
+          <div class="bento__item reveal spotlight">
+            <h3>Datos</h3>
+            <p>PostgreSQL · MySQL · MongoDB</p>
+            <div class="bars"><span style="--w:85%"></span></div>
+          </div>
+          <div class="bento__item reveal spotlight">
+            <h3>Frontend</h3>
+            <p>JavaScript · HTML5 · CSS3</p>
+            <div class="bars"><span style="--w:75%"></span></div>
+          </div>
+          <div class="bento__item reveal spotlight">
+            <h3>Móvil</h3>
+            <p>Kotlin · Room · Corrutinas</p>
+            <div class="bars"><span style="--w:65%"></span></div>
+          </div>
+          <div class="bento__item reveal spotlight">
+            <h3>Idiomas</h3>
+            <p>Español · Valenciano · Inglés B2</p>
+            <div class="bars"><span style="--w:80%"></span></div>
+          </div>
         </div>
       </div>
     </section>
 
+    <!-- EXPERIENCIA -->
     <section id="experiencia" class="section container">
-      <h2>Experiencia</h2>
+      <p class="section__kicker reveal">02 — Experiencia</p>
+      <h2 class="reveal">Dónde he estado <span class="gradient-text">construyendo</span>.</h2>
       <ol class="timeline">
-        <li class="timeline__item">
-          <div class="timeline__head">
-            <h3>Desarrollador Full Stack</h3>
-            <span class="timeline__date">Ene 2026 – actualidad</span>
+        <li class="timeline__item reveal">
+          <div class="timeline__card spotlight">
+            <div class="timeline__head">
+              <h3>Desarrollador Full Stack</h3>
+              <span class="pill pill--live">Ene 2026 – actualidad</span>
+            </div>
+            <p class="timeline__company">ASD Smart Audit Solutions · Barcelona (híbrido)</p>
+            <ul>
+              <li>APIs REST con Python y Django REST Framework para plataformas de auditoría.</li>
+              <li>Servicios backend en Go y bases de datos PostgreSQL (modelos y migraciones).</li>
+              <li>Funcionalidades de extremo a extremo y corrección de incidencias en producción.</li>
+              <li>Scrum, revisión de código y Git en equipo.</li>
+            </ul>
           </div>
-          <p class="timeline__company">ASD Smart Audit Solutions · Barcelona (híbrido)</p>
-          <ul>
-            <li>APIs REST con Python y Django REST Framework para plataformas de auditoría.</li>
-            <li>Servicios backend en Go y bases de datos PostgreSQL (modelos y migraciones).</li>
-            <li>Funcionalidades de producto de extremo a extremo y corrección de incidencias en producción.</li>
-          </ul>
         </li>
-        <li class="timeline__item">
-          <div class="timeline__head">
-            <h3>Ingeniero de soporte de software</h3>
-            <span class="timeline__date">May 2023 – May 2025</span>
+        <li class="timeline__item reveal">
+          <div class="timeline__card spotlight">
+            <div class="timeline__head">
+              <h3>Ingeniero de soporte de software</h3>
+              <span class="pill">May 2023 – May 2025</span>
+            </div>
+            <p class="timeline__company">F1 Connecting S.L. · Valencia (híbrido)</p>
+            <ul>
+              <li>Soporte técnico y resolución de incidencias en aplicaciones en producción.</li>
+              <li>Depuración y análisis de causa raíz de errores recurrentes.</li>
+              <li>Puente entre clientes y el equipo de desarrollo.</li>
+            </ul>
           </div>
-          <p class="timeline__company">F1 Connecting S.L. · Valencia (híbrido)</p>
-          <ul>
-            <li>Soporte técnico y resolución de incidencias en aplicaciones en producción.</li>
-            <li>Depuración y análisis de causa raíz de errores recurrentes.</li>
-          </ul>
+        </li>
+        <li class="timeline__item reveal">
+          <div class="timeline__card spotlight">
+            <div class="timeline__head">
+              <h3>Grado en Ingeniería Multimedia</h3>
+              <span class="pill">2020 – 2025</span>
+            </div>
+            <p class="timeline__company">Universitat de València</p>
+          </div>
         </li>
       </ol>
     </section>
 
+    <!-- PROYECTOS -->
     <section id="proyectos" class="section container">
-      <h2>Proyectos</h2>
+      <p class="section__kicker reveal">03 — Proyectos</p>
+      <h2 class="reveal">Cosas que he <span class="gradient-text">hecho realidad</span>.</h2>
       <div class="projects">
-        <article class="card">
-          <h3>Gestor de polideportivo</h3>
-          <p class="card__meta">TFG · 2025</p>
-          <p>Plataforma web para gestionar socios, actividades e inscripciones de un polideportivo, con panel de administración.</p>
-          <ul class="tags"><li>Django</li><li>Python</li><li>HTML</li><li>CSS</li></ul>
-          <a class="card__link" href="https://youtu.be/jzID-QqDc48" target="_blank" rel="noopener">Ver demo →</a>
+        <article class="project reveal tilt spotlight" style="--hue1:#7c5cff;--hue2:#22d3ee">
+          <div class="project__cover">
+            <svg viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="22" fill="none" stroke="currentColor" stroke-width="3"/><path d="M10 32h44M32 10c8 7 8 37 0 44M32 10c-8 7-8 37 0 44" fill="none" stroke="currentColor" stroke-width="3"/></svg>
+            <span class="project__num">01</span>
+          </div>
+          <div class="project__body">
+            <p class="project__meta">TFG · 2025</p>
+            <h3>Gestor de polideportivo</h3>
+            <p>Plataforma web para gestionar socios, actividades e inscripciones de un polideportivo, con panel de administración completo.</p>
+            <ul class="tags"><li>Django</li><li>Python</li><li>HTML</li><li>CSS</li></ul>
+            <a class="project__link" href="https://youtu.be/jzID-QqDc48" target="_blank" rel="noopener">Ver demo <span aria-hidden="true">↗</span></a>
+          </div>
         </article>
-        <article class="card">
-          <h3>SecurePass</h3>
-          <p class="card__meta">Gestor de contraseñas · 2025</p>
-          <p>Gestión de credenciales con verificación en dos pasos por correo, recuperación de contraseña y despliegue con Gunicorn y WhiteNoise.</p>
-          <ul class="tags"><li>Django</li><li>SQLite</li><li>SMTP</li></ul>
-          <a class="card__link" href="https://github.com/carlosizdo/PasswordManager" target="_blank" rel="noopener">Ver código →</a>
+
+        <article class="project reveal tilt spotlight" style="--hue1:#f43f5e;--hue2:#f59e0b">
+          <div class="project__cover">
+            <svg viewBox="0 0 64 64" aria-hidden="true"><rect x="14" y="28" width="36" height="26" rx="5" fill="none" stroke="currentColor" stroke-width="3"/><path d="M22 28v-7a10 10 0 0 1 20 0v7" fill="none" stroke="currentColor" stroke-width="3"/><circle cx="32" cy="41" r="3.5" fill="currentColor"/></svg>
+            <span class="project__num">02</span>
+          </div>
+          <div class="project__body">
+            <p class="project__meta">Gestor de contraseñas · 2025</p>
+            <h3>SecurePass</h3>
+            <p>Credenciales seguras con verificación en dos pasos por correo, recuperación de contraseña y despliegue con Gunicorn y WhiteNoise.</p>
+            <ul class="tags"><li>Django</li><li>SQLite</li><li>2FA</li><li>SMTP</li></ul>
+            <a class="project__link" href="https://github.com/carlosizdo/PasswordManager" target="_blank" rel="noopener">Ver código <span aria-hidden="true">↗</span></a>
+          </div>
         </article>
-        <article class="card">
-          <h3>Campings CV</h3>
-          <p class="card__meta">App Android · 2025</p>
-          <p>Muestra los campings de la Comunitat Valenciana a partir de datos abiertos, con buscador, favoritos y modo sin conexión.</p>
-          <ul class="tags"><li>Kotlin</li><li>Room</li><li>OkHttp</li></ul>
-          <a class="card__link" href="https://github.com/carlosizdo/Camping" target="_blank" rel="noopener">Ver código →</a>
+
+        <article class="project reveal tilt spotlight" style="--hue1:#10b981;--hue2:#84cc16">
+          <div class="project__cover">
+            <svg viewBox="0 0 64 64" aria-hidden="true"><path d="M8 52 32 14l24 38Z" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round"/><path d="M32 14v38M26 52l6-12 6 12" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round"/></svg>
+            <span class="project__num">03</span>
+          </div>
+          <div class="project__body">
+            <p class="project__meta">App Android · 2025</p>
+            <h3>Campings CV</h3>
+            <p>Todos los campings de la Comunitat Valenciana desde datos abiertos, con buscador, favoritos y modo sin conexión.</p>
+            <ul class="tags"><li>Kotlin</li><li>Room</li><li>OkHttp</li><li>Corrutinas</li></ul>
+            <a class="project__link" href="https://github.com/carlosizdo/Camping" target="_blank" rel="noopener">Ver código <span aria-hidden="true">↗</span></a>
+          </div>
         </article>
       </div>
     </section>
 
-    <section id="contacto" class="section container contact">
-      <h2>Contacto</h2>
-      <p>¿Tienes un proyecto o una oferta? Escríbeme.</p>
-      <div class="hero__actions">
-        <a class="btn btn--primary" href="mailto:carlosizdo27@gmail.com">Enviar email</a>
-        <a class="btn" href="https://www.linkedin.com/in/carlosizquierdogil" target="_blank" rel="noopener">LinkedIn</a>
-        <a class="btn" href="https://github.com/carlosizdo" target="_blank" rel="noopener">GitHub</a>
+    <!-- CONTACTO -->
+    <section id="contacto" class="section container">
+      <div class="contact reveal">
+        <div class="contact__glow" aria-hidden="true"></div>
+        <p class="section__kicker">04 — Contacto</p>
+        <h2>¿Construimos algo<br><span class="gradient-text">juntos</span>?</h2>
+        <p>Si tienes un proyecto, una oferta o simplemente quieres hablar de código, escríbeme.</p>
+        <button class="email-copy magnetic" id="email-copy" data-email="carlosizdo27@gmail.com">
+          <span class="email-copy__text">carlosizdo27@gmail.com</span>
+          <span class="email-copy__hint" id="email-hint">Copiar</span>
+        </button>
+        <div class="socials">
+          <a href="mailto:carlosizdo27@gmail.com" class="btn btn--primary magnetic">Enviar email</a>
+          <a href="https://www.linkedin.com/in/carlosizquierdogil" target="_blank" rel="noopener" class="btn btn--ghost magnetic">LinkedIn ↗</a>
+          <a href="https://github.com/carlosizdo" target="_blank" rel="noopener" class="btn btn--ghost magnetic">GitHub ↗</a>
+        </div>
       </div>
     </section>
   </main>
 
   <footer class="footer container">
     <p>© <span id="year"></span> Carlos Izquierdo Gil</p>
+    <p>Hecho a mano con HTML, CSS y JS</p>
   </footer>
 
   <script src="script.js"></script>
