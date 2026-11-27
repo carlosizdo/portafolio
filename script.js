@@ -5,18 +5,33 @@ const finePointer = matchMedia("(pointer: fine)").matches;
 /* ---------- Año del footer ---------- */
 document.getElementById("year").textContent = new Date().getFullYear();
 
-/* ---------- Tema (oscuro por defecto, se recuerda) ---------- */
-try {
-  const saved = localStorage.getItem("theme");
-  if (saved) root.dataset.theme = saved;
-} catch (_) {}
+/* ---------- Tema ----------
+   El tema inicial (guardado o el del sistema) se aplica en un script dentro de <head>
+   para que no haya parpadeo. Aquí solo se cambia y se recuerda. */
 document.getElementById("theme-toggle").addEventListener("click", () => {
   root.dataset.theme = root.dataset.theme === "light" ? "dark" : "light";
   try { localStorage.setItem("theme", root.dataset.theme); } catch (_) {}
 });
 
-/* ---------- Nav + barra de progreso ---------- */
+/* ---------- Menú móvil ---------- */
 const nav = document.getElementById("nav");
+const navToggle = document.getElementById("nav-toggle");
+const setMenu = (open) => {
+  nav.classList.toggle("is-open", open);
+  navToggle.setAttribute("aria-expanded", String(open));
+  navToggle.setAttribute("aria-label", open ? "Cerrar menú" : "Abrir menú");
+};
+navToggle.addEventListener("click", () => setMenu(!nav.classList.contains("is-open")));
+document.querySelectorAll("#nav-links a").forEach((a) => a.addEventListener("click", () => setMenu(false)));
+addEventListener("keydown", (e) => {
+  if (e.key === "Escape" && nav.classList.contains("is-open")) { setMenu(false); navToggle.focus(); }
+});
+document.addEventListener("click", (e) => {
+  if (nav.classList.contains("is-open") && !nav.contains(e.target)) setMenu(false);
+});
+matchMedia("(min-width: 641px)").addEventListener("change", (e) => { if (e.matches) setMenu(false); });
+
+/* ---------- Nav + barra de progreso ---------- */
 const progress = document.getElementById("scroll-progress");
 const onScroll = () => {
   const max = document.documentElement.scrollHeight - innerHeight;
